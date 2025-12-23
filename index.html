@@ -82,6 +82,7 @@
     mask-composite: exclude;
     opacity: 0;
     transition: opacity 0.4s ease;
+    pointer-events: none;
   }
 
   .creative-contact-card:hover::before {
@@ -121,11 +122,29 @@
     color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
     transition: color 0.3s ease;
+    cursor: pointer !important;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
   }
 
   .creative-contact-card a:hover,
   a.creative-contact-card:hover span {
     color: #fff;
+    text-decoration: underline;
+  }
+  
+  .creative-contact-card a[href^="mailto:"],
+  .creative-contact-card a[href^="tel:"] {
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer !important;
+  }
+  
+  .creative-contact-card a[href^="mailto:"]:hover,
+  .creative-contact-card a[href^="tel:"]:hover {
+    text-decoration-color: #fff;
+    cursor: pointer !important;
   }
 
   a.creative-contact-card {
@@ -282,20 +301,20 @@
         <div class="row g-4">
           <!-- Email Card -->
           <div class="col-md-4">
-            <div class="creative-contact-card">
+            <a href="mailto:rsridharan91@gmail.com" class="creative-contact-card text-decoration-none">
               <i class="bi bi-envelope-fill gradient-icon"></i>
               <h4>Email</h4>
-              <a href="mailto:rsridharan91@gmail.com">rsridharan91@gmail.com</a>
-            </div>
+              <span style="color: rgba(255, 255, 255, 0.7);">rsridharan91@gmail.com</span>
+            </a>
           </div>
           
           <!-- Phone Card -->
           <div class="col-md-4">
-            <div class="creative-contact-card">
+            <a href="tel:+17047059643" class="creative-contact-card text-decoration-none">
               <i class="bi bi-telephone-fill gradient-icon"></i>
               <h4>Phone</h4>
-              <a href="tel:7047059643">(704) 705-9643</a>
-            </div>
+              <span style="color: rgba(255, 255, 255, 0.7);">(704) 705-9643</span>
+            </a>
           </div>
           
           <!-- LinkedIn Card -->
