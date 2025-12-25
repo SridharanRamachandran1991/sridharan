@@ -251,28 +251,29 @@
         </p>
       </section>
 
-      <!-- Tableau Dashboard Section -->
+      <!-- Tableau Dashboard Section - Churn by State -->
       <section class="tableau-container">
-        <h2 class="section-title">Interactive Dashboard</h2>
+        <h2 class="section-title">Churn by State</h2>
         <p class="mb-4 text-muted">
-          Explore the interactive Tableau dashboard below to gain insights into customer churn patterns, 
-          purchase behaviors, and retention strategies.
+          Explore the interactive Tableau dashboard below to analyze customer churn rates by state. 
+          This dashboard provides insights into regional churn patterns, helping identify which states 
+          have higher customer retention challenges and where retention strategies should be focused.
         </p>
         <div class="tableau-embed-container">
-          <div class='tableauPlaceholder' id='viz1766691478812' style='position: relative'>
+          <div class='tableauPlaceholder' id='viz1766705322934' style='position: relative'>
             <noscript>
               <a href='#'>
-                <img alt='Sheet 1 ' src='https://public.tableau.com/static/images/eC/eCommerceChurn/Sheet1/1_rss.png' style='border: none' />
+                <img alt='Churn Rate by State ' src='https://public.tableau.com/static/images/eC/eCommerceChurn/ChurnState/1_rss.png' style='border: none' />
               </a>
             </noscript>
             <object class='tableauViz' style='display:none;'>
               <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
               <param name='embed_code_version' value='3' /> 
               <param name='site_root' value='' />
-              <param name='name' value='eCommerceChurn&#47;Sheet1' />
+              <param name='name' value='eCommerceChurn&#47;ChurnState' />
               <param name='tabs' value='no' />
               <param name='toolbar' value='yes' />
-              <param name='static_image' value='https://public.tableau.com/static/images/eC/eCommerceChurn/Sheet1/1.png' /> 
+              <param name='static_image' value='https://public.tableau.com/static/images/eC/eCommerceChurn/ChurnState/1.png' /> 
               <param name='animate_transition' value='yes' />
               <param name='display_static_image' value='yes' />
               <param name='display_spinner' value='yes' />
@@ -283,8 +284,8 @@
             </object>
           </div>
           <script type='text/javascript'>
-            function resizeTableauViz() {
-              var divElement = document.getElementById('viz1766691478812');
+            function resizeTableauViz(vizId) {
+              var divElement = document.getElementById(vizId);
               if (!divElement) return;
               
               var vizElement = divElement.getElementsByTagName('object')[0];
@@ -300,30 +301,138 @@
               vizElement.style.maxWidth = '100%';
             }
             
-            // Initialize on page load
-            window.addEventListener('DOMContentLoaded', function() {
-              var divElement = document.getElementById('viz1766691478812');
-              var vizElement = divElement.getElementsByTagName('object')[0];
+            function initializeTableauViz(vizId) {
+              var divElement = document.getElementById(vizId);
+              if (!divElement) return;
               
-              if (vizElement) {
-                resizeTableauViz();
-                
-                // Load Tableau script
+              var vizElement = divElement.getElementsByTagName('object')[0];
+              if (!vizElement) return;
+              
+              resizeTableauViz(vizId);
+              
+              // Check if Tableau script is already loaded
+              if (!document.querySelector('script[src="https://public.tableau.com/javascripts/api/viz_v1.js"]')) {
                 var scriptElement = document.createElement('script');
                 scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
                 scriptElement.onload = function() {
-                  // Recalculate size after Tableau loads
-                  setTimeout(resizeTableauViz, 500);
+                  setTimeout(function() {
+                    resizeTableauViz('viz1766705322934');
+                    resizeTableauViz('viz1766705549676');
+                    resizeTableauViz('viz1766706342828');
+                  }, 500);
                 };
-                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                document.body.appendChild(scriptElement);
+              } else {
+                setTimeout(function() {
+                  resizeTableauViz(vizId);
+                }, 500);
               }
+            }
+            
+            // Initialize on page load
+            window.addEventListener('DOMContentLoaded', function() {
+              initializeTableauViz('viz1766705322934');
             });
             
             // Resize on window resize (debounced)
             var resizeTimeout;
             window.addEventListener('resize', function() {
               clearTimeout(resizeTimeout);
-              resizeTimeout = setTimeout(resizeTableauViz, 250);
+              resizeTimeout = setTimeout(function() {
+                resizeTableauViz('viz1766705322934');
+                resizeTableauViz('viz1766705549676');
+                resizeTableauViz('viz1766706342828');
+              }, 250);
+            });
+          </script>
+        </div>
+        <p class="mt-3 text-muted small">
+          <i class="bi bi-info-circle"></i> 
+          If the dashboard doesn't load, please check that the Tableau Public link is correctly configured.
+        </p>
+      </section>
+
+      <!-- Tableau Dashboard Section - Churn by Delivery Time -->
+      <section class="tableau-container">
+        <h2 class="section-title">Churn by Delivery Time</h2>
+        <p class="mb-4 text-muted">
+          This dashboard explores the relationship between delivery times and customer churn. 
+          Analyze whether late deliveries contribute to increased customer churn rates and identify 
+          critical delivery performance metrics that impact customer retention.
+        </p>
+        <div class="tableau-embed-container">
+          <div class='tableauPlaceholder' id='viz1766705549676' style='position: relative'>
+            <noscript>
+              <a href='#'>
+                <img alt='Do late deliveries increase churn? ' src='https://public.tableau.com/static/images/eC/eCommerceChurn/ChurnDelivery/1_rss.png' style='border: none' />
+              </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+              <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+              <param name='embed_code_version' value='3' /> 
+              <param name='site_root' value='' />
+              <param name='name' value='eCommerceChurn&#47;ChurnDelivery' />
+              <param name='tabs' value='no' />
+              <param name='toolbar' value='yes' />
+              <param name='static_image' value='https://public.tableau.com/static/images/eC/eCommerceChurn/ChurnDelivery/1.png' /> 
+              <param name='animate_transition' value='yes' />
+              <param name='display_static_image' value='yes' />
+              <param name='display_spinner' value='yes' />
+              <param name='display_overlay' value='yes' />
+              <param name='display_count' value='yes' />
+              <param name='language' value='en-US' />
+              <param name='filter' value='publish=yes' />
+            </object>
+          </div>
+          <script type='text/javascript'>
+            // Initialize the delivery dashboard on page load
+            window.addEventListener('DOMContentLoaded', function() {
+              initializeTableauViz('viz1766705549676');
+            });
+          </script>
+        </div>
+        <p class="mt-3 text-muted small">
+          <i class="bi bi-info-circle"></i> 
+          If the dashboard doesn't load, please check that the Tableau Public link is correctly configured.
+        </p>
+      </section>
+
+      <!-- Tableau Dashboard Section - Churn by Reviews -->
+      <section class="tableau-container">
+        <h2 class="section-title">Do Bad Reviews Increase Churn?</h2>
+        <p class="mb-4 text-muted">
+          This dashboard examines the correlation between customer reviews and churn rates. 
+          Discover whether negative reviews are a leading indicator of customer churn and understand 
+          how review sentiment impacts customer retention and loyalty.
+        </p>
+        <div class="tableau-embed-container">
+          <div class='tableauPlaceholder' id='viz1766706342828' style='position: relative'>
+            <noscript>
+              <a href='#'>
+                <img alt='Do bad reviews increase churn? ' src='https://public.tableau.com/static/images/eC/eCommerceChurn/ChurnReview/1_rss.png' style='border: none' />
+              </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+              <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+              <param name='embed_code_version' value='3' /> 
+              <param name='site_root' value='' />
+              <param name='name' value='eCommerceChurn&#47;ChurnReview' />
+              <param name='tabs' value='no' />
+              <param name='toolbar' value='yes' />
+              <param name='static_image' value='https://public.tableau.com/static/images/eC/eCommerceChurn/ChurnReview/1.png' /> 
+              <param name='animate_transition' value='yes' />
+              <param name='display_static_image' value='yes' />
+              <param name='display_spinner' value='yes' />
+              <param name='display_overlay' value='yes' />
+              <param name='display_count' value='yes' />
+              <param name='language' value='en-US' />
+              <param name='filter' value='publish=yes' />
+            </object>
+          </div>
+          <script type='text/javascript'>
+            // Initialize the reviews dashboard on page load
+            window.addEventListener('DOMContentLoaded', function() {
+              initializeTableauViz('viz1766706342828');
             });
           </script>
         </div>
