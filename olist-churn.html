@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Olist Ecommerce Churn - Sridharan Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+      body {
+        padding-top: 80px;
+      }
+      
+      .project-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 4rem 0;
+        margin-bottom: 3rem;
+      }
+      
+      .project-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      .section-title {
+        font-weight: 700;
+        margin-bottom: 2rem;
+        color: #333;
+      }
+      
+      .description-section {
+        background: #f8f9fa;
+        padding: 2.5rem;
+        border-radius: 12px;
+        margin-bottom: 3rem;
+        line-height: 1.8;
+      }
+      
+      .tableau-container {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        margin-bottom: 3rem;
+      }
+      
+      .tableau-embed {
+        width: 100%;
+        height: 800px;
+        border: none;
+        border-radius: 8px;
+      }
+      
+      .tableauPlaceholder {
+        width: 100%;
+        min-height: 600px;
+      }
+      
+      .tableauViz {
+        width: 100% !important;
+      }
+      
+      .dataset-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      
+      .dataset-link:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        color: white;
+      }
+      
+      .back-link {
+        color: white;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+        transition: opacity 0.2s ease;
+      }
+      
+      .back-link:hover {
+        opacity: 0.8;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Sridharan Ramachandran Portfolio</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#top">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Project Header -->
+    <div class="project-header">
+      <div class="container">
+        <a href="index.html#projects" class="back-link">
+          <i class="bi bi-arrow-left"></i> Back to Projects
+        </a>
+        <h1 class="display-3 fw-bold mb-3">Olist Ecommerce Churn Analysis</h1>
+        <p class="lead">Comprehensive analysis of customer churn patterns in Brazilian e-commerce</p>
+      </div>
+    </div>
+
+    <!-- Project Content -->
+    <div class="container project-content">
+      <!-- Description Section -->
+      <section class="description-section">
+        <h2 class="section-title">Project Overview</h2>
+        <p class="mb-4">
+          This project presents an in-depth analysis of customer churn patterns in the Olist e-commerce platform, 
+          one of Brazil's largest e-commerce marketplaces. The analysis explores customer behavior, identifies key 
+          churn indicators, and provides actionable insights through comprehensive data visualization.
+        </p>
+        
+        <h3 class="h5 fw-bold mt-4 mb-3">Key Objectives</h3>
+        <ul class="mb-4">
+          <li>Identify patterns and trends in customer churn behavior</li>
+          <li>Analyze customer segmentation and purchase patterns</li>
+          <li>Discover predictive indicators of customer attrition</li>
+          <li>Provide actionable insights to reduce churn and improve retention strategies</li>
+          <li>Visualize complex data relationships through interactive dashboards</li>
+        </ul>
+        
+        <h3 class="h5 fw-bold mt-4 mb-3">Dataset</h3>
+        <p class="mb-3">
+          The analysis is based on the Brazilian E-Commerce Public Dataset by Olist, which contains information 
+          about orders made at Olist Store. The dataset includes multiple CSV files with data on orders, customers, 
+          products, sellers, reviews, and geolocation.
+        </p>
+        <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" class="dataset-link">
+          <i class="bi bi-box-arrow-up-right"></i>
+          View Dataset on Kaggle
+        </a>
+        
+        <h3 class="h5 fw-bold mt-4 mb-3">Methodology</h3>
+        <p>
+          The project employs advanced data analysis techniques including exploratory data analysis (EDA), 
+          customer segmentation, time series analysis, and predictive modeling. The findings are presented 
+          through interactive Tableau dashboards that allow stakeholders to explore the data dynamically 
+          and gain insights into customer behavior patterns.
+        </p>
+      </section>
+
+      <!-- Tableau Dashboard Section -->
+      <section class="tableau-container">
+        <h2 class="section-title">Interactive Dashboard</h2>
+        <p class="mb-4 text-muted">
+          Explore the interactive Tableau dashboard below to gain insights into customer churn patterns, 
+          purchase behaviors, and retention strategies.
+        </p>
+        <div class="tableau-embed-container">
+          <div class='tableauPlaceholder' id='viz1766691478812' style='position: relative'>
+            <noscript>
+              <a href='#'>
+                <img alt='Sheet 1 ' src='https://public.tableau.com/static/images/eC/eCommerceChurn/Sheet1/1_rss.png' style='border: none' />
+              </a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+              <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+              <param name='embed_code_version' value='3' /> 
+              <param name='site_root' value='' />
+              <param name='name' value='eCommerceChurn&#47;Sheet1' />
+              <param name='tabs' value='no' />
+              <param name='toolbar' value='yes' />
+              <param name='static_image' value='https://public.tableau.com/static/images/eC/eCommerceChurn/Sheet1/1.png' /> 
+              <param name='animate_transition' value='yes' />
+              <param name='display_static_image' value='yes' />
+              <param name='display_spinner' value='yes' />
+              <param name='display_overlay' value='yes' />
+              <param name='display_count' value='yes' />
+              <param name='language' value='en-US' />
+              <param name='filter' value='publish=yes' />
+            </object>
+          </div>
+          <script type='text/javascript'>
+            var divElement = document.getElementById('viz1766691478812');
+            var vizElement = divElement.getElementsByTagName('object')[0];
+            vizElement.style.width='100%';
+            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+            var scriptElement = document.createElement('script');
+            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+          </script>
+        </div>
+        <p class="mt-3 text-muted small">
+          <i class="bi bi-info-circle"></i> 
+          If the dashboard doesn't load, please check that the Tableau Public link is correctly configured.
+        </p>
+      </section>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+

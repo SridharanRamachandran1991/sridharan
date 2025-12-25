@@ -156,6 +156,20 @@
     text-decoration: none;
   }
 
+  /* PROJECT CARD HOVER EFFECTS */
+  #projects a {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  #projects a:hover {
+    transform: translateY(-5px);
+    text-decoration: none;
+  }
+
+  #projects a:hover .card {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
     </style>
   </head>
   <body>
@@ -225,18 +239,18 @@
         <div class="row g-4 justify-content-center">
           <!-- Project 1 -->
           <div class="col-12 col-md-6 col-lg-4">
-            <div class="card border-0 h-100 text-center">
-              <img src="https://picsum.photos/id/237/400/300" class="card-img-top rounded-4" alt="Real face or AI-generated fake?" />
-              <div class="card-body px-4">
-                <h3 class="h4 fw-bold mt-3">Real face or AI-generated fake?</h3>
-                <p class="mb-3">If presented with two images, would you be able to tell the difference between the real face and the AI fake? In this project, I created an app that tests you on your ability to distinguish fake faces from real ones. All you need to do is take my quiz and select whether you think the person in the picture is real.</p>
-                <div class="fw-semibold">
-                  <a href="#" class="text-dark text-decoration-none">Blog Post</a>
-                  <span class="mx-2">|</span>
-                  <a href="#" class="text-dark text-decoration-none">Quiz App</a>
+            <a href="olist-churn.html" class="text-decoration-none">
+              <div class="card border-0 h-100 text-center">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop" class="card-img-top rounded-4" alt="Olist Ecommerce Churn" />
+                <div class="card-body px-4">
+                  <h3 class="h4 fw-bold mt-3 text-dark">Olist Ecommerce Churn</h3>
+                  <p class="mb-3 text-dark">An in-depth analysis of customer churn patterns in the Olist e-commerce platform. This project explores customer behavior, identifies key churn indicators, and provides actionable insights through comprehensive data visualization. The analysis includes customer segmentation, purchase patterns, and predictive indicators to help reduce customer attrition and improve retention strategies.</p>
+                  <div class="fw-semibold">
+                    <span class="text-dark">View Project Details <i class="bi bi-arrow-right"></i></span>
+                  </div>
                 </div>
               </div>
-            </div>
+            </a>
           </div>
           <!-- Project 2 -->
           <div class="col-12 col-md-6 col-lg-4">
