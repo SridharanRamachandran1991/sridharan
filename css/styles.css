@@ -1,0 +1,61 @@
+/* ============================================
+   SHARED STYLES - Common styles across all pages
+   ============================================ */
+
+/* CSS Variables for consistent theming */
+:root {
+  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-primary-extended: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+  --color-primary-start: #667eea;
+  --color-primary-end: #764ba2;
+  --shadow-primary: rgba(102, 126, 234, 0.4);
+  --transition-base: 0.3s ease;
+  --transition-fast: 0.2s ease;
+  --border-radius-base: 12px;
+  --border-radius-large: 24px;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent the sticky navbar from covering section headings when you jump */
+section {
+  scroll-margin-top: 90px;
+}
+
+/* Common gradient utilities */
+.gradient-bg {
+  background: var(--gradient-primary);
+}
+
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Common transition utilities */
+.transition-base {
+  transition: all var(--transition-base);
+}
+
+.transition-fast {
+  transition: all var(--transition-fast);
+}
+
+/* Common responsive utilities */
+@media (max-width: 768px) {
+  section {
+    scroll-margin-top: 80px;
+  }
+}
+
+@media (max-width: 576px) {
+  section {
+    scroll-margin-top: 70px;
+  }
+}
+
