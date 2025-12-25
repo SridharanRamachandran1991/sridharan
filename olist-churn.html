@@ -57,10 +57,72 @@
       .tableauPlaceholder {
         width: 100%;
         min-height: 600px;
+        position: relative;
+        overflow: hidden;
       }
       
       .tableauViz {
         width: 100% !important;
+        max-width: 100%;
+      }
+      
+      /* Mobile Responsive Styles */
+      @media (max-width: 768px) {
+        .project-header {
+          padding: 2.5rem 0;
+        }
+        
+        .project-header h1 {
+          font-size: 2rem;
+        }
+        
+        .description-section {
+          padding: 1.5rem;
+        }
+        
+        .tableau-container {
+          padding: 1rem;
+        }
+        
+        .tableauPlaceholder {
+          min-height: 400px;
+        }
+        
+        .section-title {
+          font-size: 1.5rem;
+        }
+      }
+      
+      @media (max-width: 576px) {
+        .project-header {
+          padding: 2rem 0;
+        }
+        
+        .project-header h1 {
+          font-size: 1.75rem;
+        }
+        
+        .project-header .lead {
+          font-size: 1rem;
+        }
+        
+        .description-section {
+          padding: 1.25rem;
+          font-size: 0.95rem;
+        }
+        
+        .tableau-container {
+          padding: 0.75rem;
+        }
+        
+        .tableauPlaceholder {
+          min-height: 350px;
+        }
+        
+        .dataset-link {
+          padding: 0.6rem 1.2rem;
+          font-size: 0.9rem;
+        }
       }
       
       .dataset-link {
@@ -218,13 +280,48 @@
             </object>
           </div>
           <script type='text/javascript'>
-            var divElement = document.getElementById('viz1766691478812');
-            var vizElement = divElement.getElementsByTagName('object')[0];
-            vizElement.style.width='100%';
-            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            function resizeTableauViz() {
+              var divElement = document.getElementById('viz1766691478812');
+              if (!divElement) return;
+              
+              var vizElement = divElement.getElementsByTagName('object')[0];
+              if (!vizElement) return;
+              
+              var containerWidth = divElement.offsetWidth;
+              
+              // Adjust aspect ratio based on screen size
+              var aspectRatio = window.innerWidth <= 768 ? 1.2 : 0.75; // Taller on mobile
+              
+              vizElement.style.width = '100%';
+              vizElement.style.height = (containerWidth * aspectRatio) + 'px';
+              vizElement.style.maxWidth = '100%';
+            }
+            
+            // Initialize on page load
+            window.addEventListener('DOMContentLoaded', function() {
+              var divElement = document.getElementById('viz1766691478812');
+              var vizElement = divElement.getElementsByTagName('object')[0];
+              
+              if (vizElement) {
+                resizeTableauViz();
+                
+                // Load Tableau script
+                var scriptElement = document.createElement('script');
+                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                scriptElement.onload = function() {
+                  // Recalculate size after Tableau loads
+                  setTimeout(resizeTableauViz, 500);
+                };
+                vizElement.parentNode.insertBefore(scriptElement, vizElement);
+              }
+            });
+            
+            // Resize on window resize (debounced)
+            var resizeTimeout;
+            window.addEventListener('resize', function() {
+              clearTimeout(resizeTimeout);
+              resizeTimeout = setTimeout(resizeTableauViz, 250);
+            });
           </script>
         </div>
         <p class="mt-3 text-muted small">
