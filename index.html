@@ -159,6 +159,55 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   }
 
+  /* RESEARCH PUBLICATIONS SECTION */
+  #publications {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    background: #f8f9fa;
+  }
+
+  .publication-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    color: #333;
+    transition: all var(--transition-fast);
+  }
+
+  .publication-link:hover {
+    background: #f8f9fa;
+    border-color: var(--color-primary-start);
+    box-shadow: 0 2px 8px rgba(102, 126, 234, 0.1);
+    color: var(--color-primary-start);
+    text-decoration: none;
+  }
+
+  .publication-link i {
+    font-size: 1.5rem;
+    color: var(--color-primary-start);
+  }
+
+  .publication-link .publication-text {
+    flex: 1;
+  }
+
+  .publication-link .publication-title {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: inherit;
+  }
+
+  .publication-link .publication-meta {
+    font-size: 0.9rem;
+    color: #666;
+  }
+
     </style>
   </head>
   <body>
@@ -193,6 +242,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#publications">Publications</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#contact">Contact</a>
@@ -291,6 +343,47 @@
             <h3 class="h4 fw-bold">Data Storytelling</h3>
             <p class="mb-3"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Donec sed nisl erat. Sed et purus ornare, eleifend tellus ut, fermentum arcu. Maecenas lacinia scelerisque arcu a eleifend. Suspendisse imperdiet arcu ex, vel feugiat enim lacinia tincidunt. </p>
             <a href="#" class="fw-semibold text-primary text-decoration-none">Link to course or bootcamp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Research Publications Section -->
+    <section id="publications" class="py-5">
+      <div class="container">
+        <h2 class="text-center display-3 fw-bold mb-5">Research Publications</h2>
+        <p class="text-center mb-5 text-muted">
+          Research methodologies and frameworks that inform my data science work:
+        </p>
+        <div class="row g-4 justify-content-center">
+          <!-- Research Paper 1 -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="https://ieeexplore.ieee.org/document/7803003" target="_blank" class="text-decoration-none">
+              <div class="card border-0 h-100 text-center">
+                <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&h=300&fit=crop" class="card-img-top rounded-4" alt="Support Confidence Utility Action Rules" />
+                <div class="card-body px-4">
+                  <h3 class="h4 fw-bold mt-3 text-dark">Support, Confidence and Utility of Action Rules Triggered by Meta-Actions</h3>
+                  <p class="mb-3 text-dark">Research paper proposing improved measures for support and confidence of action rules, and introducing a new utility measure. The work employs meta-actions as nodes of higher-level knowledge linked with atomic action terms, showing changes triggered within classification attributes to improve action rule generation and pruning.</p>
+                  <div class="fw-semibold">
+                    <span class="text-dark">View Research Paper <i class="bi bi-box-arrow-up-right"></i></span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <!-- Research Paper 2 -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <a href="https://journals.sagepub.com/doi/10.3233/FI-2020-1911" target="_blank" class="text-decoration-none">
+              <div class="card border-0 h-100 text-center">
+                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop" class="card-img-top rounded-4" alt="Action Rules Research" />
+                <div class="card-body px-4">
+                  <h3 class="h4 fw-bold mt-3 text-dark">Action Rules of Lowest Cost and Action Set Correlations</h3>
+                  <p class="mb-3 text-dark">Research paper on action rule mining that introduces improved measures for support and confidence of action rules, along with a new utility measure. The work employs meta-actions as a pruning mechanism and addresses cost considerations in action rule discovery, providing a framework for identifying actionable patterns in decision systems.</p>
+                  <div class="fw-semibold">
+                    <span class="text-dark">View Research Paper <i class="bi bi-box-arrow-up-right"></i></span>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </div>
