@@ -11,13 +11,11 @@
     <!-- Shared CSS -->
     <link rel="stylesheet" href="../../css/styles.css" />
     <style>
-      body { padding-top: 80px; }
-
       .project-header {
         background: var(--gradient-primary);
         color: white;
-        padding: 4rem 0;
-        margin-bottom: 3rem;
+        padding: 2rem 0;
+        margin-bottom: 2rem;
       }
 
       .project-content {
@@ -41,7 +39,7 @@
 
       .tableau-container {
         background: #fff;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: var(--border-radius-base);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         margin-bottom: 3rem;
@@ -49,9 +47,14 @@
 
       .tableau-embed { width: 100%; height: 800px; border: none; border-radius: 8px; max-width: 100%; }
 
+      .tableau-embed-container {
+        margin: 0;
+        padding: 0;
+      }
+
       .tableauPlaceholder {
         width: 100%;
-        min-height: 600px;
+        min-height: 400px;
         position: relative;
         overflow: hidden;
       }
@@ -64,7 +67,7 @@
         .project-header h1 { font-size: 2rem; }
         .description-section { padding: 1.5rem; }
         .tableau-container { padding: 1rem; }
-        .tableauPlaceholder { min-height: 400px; }
+        .tableauPlaceholder { min-height: 300px; }
         .section-title { font-size: 1.5rem; }
       }
 
@@ -74,7 +77,7 @@
         .project-header .lead { font-size: 1rem; }
         .description-section { padding: 1.25rem; font-size: 0.95rem; }
         .tableau-container { padding: 0.75rem; }
-        .tableauPlaceholder { min-height: 350px; }
+        .tableauPlaceholder { min-height: 250px; }
         .dataset-link { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
       }
 
@@ -239,11 +242,7 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" href="../../index.html#top">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="../../index.html#about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="../../index.html#projects">Projects</a></li>
-            <li class="nav-item"><a class="nav-link" href="../../index.html#skills">Skills</a></li>
-            <li class="nav-item"><a class="nav-link" href="../../index.html#contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="../../index.html#projects"><i class="bi bi-arrow-left"></i> Back to Projects</a></li>
           </ul>
         </div>
       </div>
@@ -252,10 +251,7 @@
     <!-- Project Header -->
     <div class="project-header">
       <div class="container">
-        <a href="../../index.html#projects" class="back-link">
-          <i class="bi bi-arrow-left"></i> Back to Projects
-        </a>
-        <h1 class="display-3 fw-bold mb-3">Olist Ecommerce Churn Analysis</h1>
+        <h1 class="display-3 fw-bold mb-3">Ecommerce Churn Analysis</h1>
         <p class="lead">
           Customer churn analysis using snapshot labeling (90-day window) to identify retention drivers across delivery performance,
           customer feedback, and geography.
@@ -271,19 +267,19 @@
         <p class="summary-subtitle">Snapshot churn label • 90-day window • Customer-level analysis</p>
 
         <div class="summary-item">
-          <strong>Overall churn rate:</strong> ~70.9% (customers with no repeat purchase in the next 90 days after the cutoff)
+          <strong>Overall churn rate:</strong> ~22.7% (customers with no repeat purchase in the next 90 days after the cutoff, based on 94,401 customers analyzed)
         </div>
 
         <div class="summary-item">
-          <strong>Delivery impact:</strong> Customers with frequent late deliveries churn at <strong>81.1%</strong> vs <strong>70.1%</strong> for customers with no late deliveries (<strong>+10.9 pp</strong>)
+          <strong>Delivery impact:</strong> Customers with frequent late deliveries churn at <strong>75.2%</strong> vs <strong>9.1%</strong> for customers with no late deliveries (<strong>+66.1 pp</strong>)
         </div>
 
         <div class="summary-item">
-          <strong>Reviews impact:</strong> Customers with low reviews (1–2) churn at <strong>77.1%</strong> vs <strong>69.4%</strong> for high reviews (4–5) (<strong>+7.7 pp</strong>)
+          <strong>Reviews impact:</strong> Customers with low reviews (1–2) churn at <strong>69.5%</strong> vs <strong>11.2%</strong> for high reviews (4–5) (<strong>+58.2 pp</strong>)
         </div>
 
         <div class="summary-item">
-          <strong>Geography:</strong> Highest churn <strong>AL 77.5%</strong> vs lowest <strong>SP 67.9%</strong> (spread <strong>~9.6 pp</strong>)
+          <strong>Geography:</strong> Highest churn <strong>PA 77.3%</strong> vs lowest <strong>RN 10.3%</strong> (spread <strong>~67.0 pp</strong>). Among large states, <strong>SP</strong> shows lowest churn at <strong>20.9%</strong>.
         </div>
 
         <div class="recommendation">
@@ -360,8 +356,9 @@
         <div class="analysis-section">
           <h4>Key result:</h4>
           <p>
-            Churn varies by ~9.6 percentage points across states.
-            <strong>AL</strong> shows the highest churn (<strong>77.5%</strong>) while <strong>SP</strong> is lowest (<strong>67.9%</strong>).
+            Churn varies dramatically across states, with a spread of <strong>~67.0 percentage points</strong>.
+            <strong>PA</strong> shows the highest churn (<strong>77.3%</strong>, 941 customers) while <strong>RN</strong> is lowest (<strong>10.3%</strong>, 470 customers).
+            Among large states, <strong>SP</strong> (39,465 customers) shows the lowest churn at <strong>20.9%</strong>, while <strong>MG</strong> (11,069 customers) shows high churn at <strong>72.6%</strong>.
           </p>
         </div>
 
@@ -373,8 +370,13 @@
           </p>
         </div>
 
-        <div class="caution-note">
-          <p><strong>Data quality note:</strong> States with fewer than 200 customers are excluded to reduce small-sample noise.</p>
+        <div class="business-recommendations">
+          <h4>Business Recommendations</h4>
+          <ul>
+            <li>Investigate carriers/sellers contributing to late deliveries in high-churn states.</li>
+            <li>Localize customer support and delivery SLAs in problem regions.</li>
+            <li>Run targeted retention offers for high-churn states and measure lift.</li>
+          </ul>
         </div>
 
         <div class="tableau-embed-container">
@@ -413,8 +415,8 @@
 
               var containerWidth = divElement.offsetWidth;
 
-              // Adjust aspect ratio based on screen size
-              var aspectRatio = window.innerWidth <= 768 ? 1.2 : 0.75; // Taller on mobile
+              // Adjust aspect ratio based on screen size - reduced to minimize empty space
+              var aspectRatio = window.innerWidth <= 768 ? 0.9 : 0.6; // Optimized for dashboard content
 
               vizElement.style.width = '100%';
               vizElement.style.height = (containerWidth * aspectRatio) + 'px';
@@ -471,15 +473,6 @@
           <i class="bi bi-info-circle"></i>
           Tip: Use the dashboard filters to isolate high-churn states, then compare delivery lateness and review score patterns.
         </p>
-
-        <div class="business-recommendations">
-          <h4>Business Recommendations</h4>
-          <ul>
-            <li>Investigate carriers/sellers contributing to late deliveries in high-churn states.</li>
-            <li>Localize customer support and delivery SLAs in problem regions.</li>
-            <li>Run targeted retention offers for high-churn states and measure lift.</li>
-          </ul>
-        </div>
       </section>
 
       <!-- Tableau Dashboard Section - Churn by Delivery Time -->
@@ -494,8 +487,8 @@
         <div class="analysis-section">
           <h4>Key result:</h4>
           <p>
-            Customers with frequent late deliveries churn at <strong>81.1%</strong> vs <strong>70.1%</strong> for customers with no late deliveries
-            (<strong>+10.9 pp</strong>).
+            Customers with frequent late deliveries churn at <strong>75.2%</strong> (6,473 customers) vs <strong>9.1%</strong> for customers with no late deliveries
+            (87,903 customers) (<strong>+66.1 pp</strong>).
           </p>
         </div>
 
@@ -507,11 +500,13 @@
           </p>
         </div>
 
-        <div class="validation-note">
-          <p>
-            <strong>Validation:</strong> Because one intermediate bucket had a small sample size, I validated the pattern using binned late-delivery
-            percentages (0–20%, 20–50%, 50%+), which showed a consistent increase in churn as lateness rises.
-          </p>
+        <div class="business-recommendations">
+          <h4>Business Recommendations</h4>
+          <ul>
+            <li>Proactively message customers when delivery will be late to reduce frustration and support load.</li>
+            <li>Identify sellers/carriers driving late deliveries and introduce performance SLAs.</li>
+            <li>Create a "save offer" workflow after late deliveries (apology + coupon) and measure retention lift.</li>
+          </ul>
         </div>
 
         <div class="tableau-embed-container">
@@ -552,15 +547,6 @@
           <i class="bi bi-info-circle"></i>
           Tip: Toggle filters (late bucket / order count) to see how churn changes for repeat customers vs one-time buyers.
         </p>
-
-        <div class="business-recommendations">
-          <h4>Business Recommendations</h4>
-          <ul>
-            <li>Proactively message customers when delivery will be late to reduce frustration and support load.</li>
-            <li>Identify sellers/carriers driving late deliveries and introduce performance SLAs.</li>
-            <li>Create a “save offer” workflow after late deliveries (apology + coupon) and measure retention lift.</li>
-          </ul>
-        </div>
       </section>
 
       <!-- Tableau Dashboard Section - Churn by Reviews -->
@@ -575,8 +561,8 @@
         <div class="analysis-section">
           <h4>Key result:</h4>
           <p>
-            Customers with low reviews (1–2) churn at <strong>77.1%</strong>, compared with <strong>69.4%</strong> for high reviews (4–5)
-            (<strong>+7.7 pp</strong>).
+            Customers with low reviews (1–2) churn at <strong>69.5%</strong> (12,563 customers), compared with <strong>11.2%</strong> for high reviews (4–5)
+            (73,148 customers) (<strong>+58.2 pp</strong>). Mid-range reviews (3) show <strong>52.9%</strong> churn (8,017 customers).
           </p>
         </div>
 
@@ -587,8 +573,13 @@
           </p>
         </div>
 
-        <div class="caution-note">
-          <p><strong>Data note:</strong> “No reviews” is a smaller segment, so treat that comparison as directional.</p>
+        <div class="business-recommendations">
+          <h4>Business Recommendations</h4>
+          <ul>
+            <li>Trigger support outreach or apology credits for low-review customers to reduce churn risk.</li>
+            <li>Monitor sellers/products with repeated low reviews for quality and fulfillment issues.</li>
+            <li>Use review score as a feature in a retention targeting model and track conversion over time.</li>
+          </ul>
         </div>
 
         <div class="tableau-embed-container">
@@ -629,15 +620,6 @@
           <i class="bi bi-info-circle"></i>
           Tip: Segment by review bucket and order frequency to identify the highest-risk customers for outreach.
         </p>
-
-        <div class="business-recommendations">
-          <h4>Business Recommendations</h4>
-          <ul>
-            <li>Trigger support outreach or apology credits for low-review customers to reduce churn risk.</li>
-            <li>Monitor sellers/products with repeated low reviews for quality and fulfillment issues.</li>
-            <li>Use review score as a feature in a retention targeting model and track conversion over time.</li>
-          </ul>
-        </div>
       </section>
 
       <!-- Limitations & Next Steps -->
