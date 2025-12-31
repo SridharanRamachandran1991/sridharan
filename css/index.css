@@ -10,7 +10,7 @@
 }
 
 .about-title {
-  font-weight: 800;
+  font-weight: 600; /* Reduced from 800 to 600 */
   margin-bottom: 3rem;
 }
 
