@@ -51,6 +51,16 @@ section {
   transition: all var(--transition-fast);
 }
 
+/* NAVBAR STYLING */
+.navbar-nav .nav-link {
+  font-size: 1.1rem; /* Increased font size for navigation links */
+  font-weight: 500;
+}
+
+.navbar-brand {
+  font-size: 1.2rem; /* Increased font size for brand/logo */
+}
+
 /* Common responsive utilities */
 @media (max-width: 768px) {
   section {

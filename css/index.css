@@ -6,6 +6,7 @@
 #about {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  background-color: #f8f9fa; /* Light gray background */
 }
 
 .about-title {
@@ -25,7 +26,7 @@
 .about-text {
   max-width: 980px;
   margin: 0 auto;
-  font-size: 1.15rem;
+  font-size: 1.25rem; /* Increased font size */
   line-height: 1.9;
 }
 
@@ -98,7 +99,7 @@
 
 .creative-contact-card a,
 .creative-contact-card span {
-  font-size: 0.9rem;
+  font-size: 1rem; /* Increased font size */
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   transition: color var(--transition-base);
@@ -136,6 +137,16 @@ a.creative-contact-card:hover {
   text-decoration: none;
 }
 
+/* PROJECTS SECTION STYLING */
+#projects {
+  background-color: #ffffff; /* White background */
+}
+
+/* SKILLS SECTION STYLING */
+#skills {
+  background-color: #e9ecef; /* Slightly darker gray background - distinct from Projects */
+}
+
 /* PROJECT CARD HOVER EFFECTS */
 #projects a {
   transition: transform var(--transition-base), box-shadow var(--transition-base);
@@ -157,7 +168,21 @@ a.creative-contact-card:hover {
   width: 100%;
 }
 
+/* PROJECT CARD TEXT SIZING */
+#projects .card-body p {
+  font-size: 1.1rem; /* Increased font size for project descriptions */
+}
+
+/* PROJECT TITLE FONT WEIGHT */
+#projects .card-body h3,
+#projects .card-body h4 {
+  font-weight: 600; /* Set project title weight to 600 */
+}
+
 /* RESEARCH PUBLICATIONS SECTION */
+#publications {
+  background-color: #f8f9fa; /* Light gray background */
+}
 /* padding-top and padding-bottom handled by py-3 class */
 
 /* RESEARCH PUBLICATIONS IMAGE SIZING */
@@ -205,7 +230,7 @@ a.creative-contact-card:hover {
 }
 
 .publication-link .publication-meta {
-  font-size: 0.9rem;
+  font-size: 1rem; /* Increased font size */
   color: #666;
 }
 
