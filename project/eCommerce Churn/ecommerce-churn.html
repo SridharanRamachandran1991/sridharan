@@ -107,23 +107,23 @@
           <li>Do poor customer reviews correlate with higher churn?</li>
         </ul>
 
-        <h3 class="h5 fw-bold mt-4 mb-3">Dataset</h3>
-        <p class="mb-3">
-          The analysis uses the Brazilian E-Commerce Public Dataset by Olist (orders, customers, delivery timestamps, and reviews).
-          Each dashboard is built at the <strong>customer_unique_id</strong> level to represent repeat behavior over time.
-        </p>
-        <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" class="dataset-link">
-          <i class="bi bi-box-arrow-up-right"></i>
-          View Dataset on Kaggle
-        </a>
-
         <h3 class="h5 fw-bold mt-4 mb-3">Method (High Level)</h3>
-        <ul class="mb-0">
+        <ul class="mb-4">
           <li>Prepared a customer-level dataset with order history, delivery performance, and reviews</li>
           <li>Created a snapshot churn label: <strong>no purchases within 90 days after cutoff</strong></li>
           <li>Compared churn rates across segments (delivery buckets, review buckets, state)</li>
           <li>Published results as Tableau dashboards with clear metrics and filters</li>
         </ul>
+        <div class="d-flex gap-3 mb-3 flex-wrap">
+          <a href="https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce" target="_blank" class="dataset-link">
+            <i class="bi bi-box-arrow-up-right"></i>
+            View Dataset on Kaggle
+          </a>
+          <a href="https://github.com/SridharanRamachandran1991/sridharan/tree/2652ba0cc286f62f7194fe7640f303c78ca57fa5/project/eCommerce%20Churn" target="_blank" class="dataset-link">
+            <i class="bi bi-github"></i>
+            View Code on GitHub
+          </a>
+        </div>
       </section>
 
       <!-- Tableau Dashboard Section - Churn by State -->
