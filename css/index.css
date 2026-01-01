@@ -170,7 +170,7 @@ a.creative-contact-card:hover {
 
 /* PROJECT CARD TEXT SIZING */
 #projects .card-body p {
-  font-size: 1.1rem; /* Increased font size for project descriptions */
+  font-size: 1.25rem; /* Increased font size for project descriptions */
 }
 
 /* PROJECT TITLE FONT WEIGHT */
@@ -190,6 +190,11 @@ a.creative-contact-card:hover {
   height: 180px;
   object-fit: cover;
   width: 100%;
+}
+
+/* RESEARCH PUBLICATIONS TEXT SIZING */
+#publications .card-body p {
+  font-size: 1.25rem; /* Increased font size for research paper descriptions */
 }
 
 .publication-link {
