@@ -126,9 +126,33 @@
         </div>
       </section>
 
-      <!-- Tableau Dashboard Section - Churn by State -->
+      <!-- Tableau Dashboard Sections - Tabs Layout -->
       <section class="tableau-container">
-        <h2 class="section-title">Churn by State (Geography)</h2>
+        <h2 class="section-title mb-4">Dashboard Analysis</h2>
+        
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs mb-4" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-geography" data-bs-toggle="tab" data-bs-target="#pane-geography" type="button" role="tab" aria-controls="pane-geography" aria-selected="true">
+              Churn by State
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-delivery" data-bs-toggle="tab" data-bs-target="#pane-delivery" type="button" role="tab" aria-controls="pane-delivery" aria-selected="false">
+              Late Deliveries
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-reviews" data-bs-toggle="tab" data-bs-target="#pane-reviews" type="button" role="tab" aria-controls="pane-reviews" aria-selected="false">
+              Bad Reviews
+            </button>
+          </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+          <!-- Tab Pane 1: Geography -->
+          <div class="tab-pane fade show active" id="pane-geography" role="tabpanel" aria-labelledby="tab-geography">
 
         <div class="analysis-section">
           <h4>Business question:</h4>
@@ -192,24 +216,53 @@
               var divElement = document.getElementById(vizId);
               if (!divElement) return;
 
-              var vizElement = divElement.getElementsByTagName('object')[0];
+              // Try to find iframe first (Tableau converts object to iframe)
+              var vizElement = divElement.querySelector('iframe.tableauViz') || 
+                              divElement.getElementsByTagName('iframe')[0] ||
+                              divElement.getElementsByTagName('object')[0];
+              
               if (!vizElement) return;
 
+              // Make sure element is visible
+              vizElement.style.display = 'block';
+              
+              // Get container width - use parent container if divElement width is 0
               var containerWidth = divElement.offsetWidth;
+              if (containerWidth === 0) {
+                var parent = divElement.parentElement;
+                if (parent) {
+                  containerWidth = parent.offsetWidth;
+                }
+              }
+              
+              // Fallback to window width if still 0
+              if (containerWidth === 0) {
+                containerWidth = window.innerWidth - 100; // Account for padding
+              }
 
-              // Adjust aspect ratio based on screen size - reduced to minimize empty space
-              var aspectRatio = window.innerWidth <= 768 ? 0.9 : 0.6; // Optimized for dashboard content
+              // Adjust aspect ratio based on screen size
+              var aspectRatio = window.innerWidth <= 768 ? 0.9 : 0.6;
+              var calculatedHeight = containerWidth * aspectRatio;
+              
+              // Ensure minimum height
+              if (calculatedHeight < 400) {
+                calculatedHeight = 400;
+              }
 
               vizElement.style.width = '100%';
-              vizElement.style.height = (containerWidth * aspectRatio) + 'px';
+              vizElement.style.height = calculatedHeight + 'px';
               vizElement.style.maxWidth = '100%';
+              vizElement.style.minHeight = '400px';
             }
 
             function initializeTableauViz(vizId) {
               var divElement = document.getElementById(vizId);
               if (!divElement) return;
 
-              var vizElement = divElement.getElementsByTagName('object')[0];
+              // Try to find iframe first (Tableau converts object to iframe)
+              var vizElement = divElement.querySelector('iframe.tableauViz') || 
+                              divElement.getElementsByTagName('iframe')[0] ||
+                              divElement.getElementsByTagName('object')[0];
               if (!vizElement) return;
 
               resizeTableauViz(vizId);
@@ -255,11 +308,10 @@
           <i class="bi bi-info-circle"></i>
           Tip: Use the dashboard filters to isolate high-churn states, then compare delivery lateness and review score patterns.
         </p>
-      </section>
+          </div>
 
-      <!-- Tableau Dashboard Section - Churn by Delivery Time -->
-      <section class="tableau-container">
-        <h2 class="section-title">Do Late Deliveries Increase Churn?</h2>
+          <!-- Tab Pane 2: Delivery -->
+          <div class="tab-pane fade" id="pane-delivery" role="tabpanel" aria-labelledby="tab-delivery">
 
         <div class="analysis-section">
           <h4>Business question:</h4>
@@ -315,13 +367,7 @@
             </object>
           </div>
           <script type='text/javascript'>
-            var divElement = document.getElementById('viz1767205629728');
-            var vizElement = divElement.getElementsByTagName('object')[0];
-            vizElement.style.width='100%';
-            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            // Visualization will be initialized when tab is shown
           </script>
         </div>
 
@@ -329,11 +375,10 @@
           <i class="bi bi-info-circle"></i>
           Tip: Toggle filters (late bucket / order count) to see how churn changes for repeat customers vs one-time buyers.
         </p>
-      </section>
+          </div>
 
-      <!-- Tableau Dashboard Section - Churn by Reviews -->
-      <section class="tableau-container">
-        <h2 class="section-title">Do Bad Reviews Increase Churn?</h2>
+          <!-- Tab Pane 3: Reviews -->
+          <div class="tab-pane fade" id="pane-reviews" role="tabpanel" aria-labelledby="tab-reviews">
 
         <div class="analysis-section">
           <h4>Business question:</h4>
@@ -389,13 +434,7 @@
             </object>
           </div>
           <script type='text/javascript'>
-            var divElement = document.getElementById('viz1767206310675');
-            var vizElement = divElement.getElementsByTagName('object')[0];
-            vizElement.style.width='100%';
-            vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-            var scriptElement = document.createElement('script');
-            scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-            vizElement.parentNode.insertBefore(scriptElement, vizElement);
+            // Visualization will be initialized when tab is shown
           </script>
         </div>
 
@@ -403,6 +442,8 @@
           <i class="bi bi-info-circle"></i>
           Tip: Segment by review bucket and order frequency to identify the highest-risk customers for outreach.
         </p>
+          </div>
+        </div>
       </section>
 
       <!-- Limitations & Next Steps -->
@@ -446,6 +487,90 @@
           }
         });
       })();
+
+      // Initialize Tableau visualizations when tabs are shown
+      document.addEventListener('DOMContentLoaded', function() {
+        // Initialize first tab (Geography) on page load
+        setTimeout(function() {
+          if (typeof initializeTableauViz === 'function') {
+            initializeTableauViz('viz1767031657381');
+          }
+        }, 500);
+
+        // Map tab panes to their visualization IDs
+        const tabVizMap = {
+          'pane-geography': 'viz1767031657381',
+          'pane-delivery': 'viz1767205629728',
+          'pane-reviews': 'viz1767206310675'
+        };
+
+        // Listen to tab button clicks to initialize Tableau when tabs are shown
+        const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
+        tabButtons.forEach(function(button) {
+          button.addEventListener('shown.bs.tab', function(event) {
+            const targetPaneId = event.target.getAttribute('data-bs-target');
+            const paneId = targetPaneId.replace('#', '');
+            const vizId = tabVizMap[paneId];
+            
+            if (vizId) {
+              // Make sure the iframe/object element is visible
+              var divElement = document.getElementById(vizId);
+              if (divElement) {
+                var vizElement = divElement.querySelector('iframe.tableauViz') || 
+                                divElement.getElementsByTagName('iframe')[0] ||
+                                divElement.getElementsByTagName('object')[0];
+                if (vizElement) {
+                  vizElement.style.display = 'block';
+                }
+              }
+              
+              // Initialize Tableau when tab becomes visible - multiple resize attempts
+              setTimeout(function() {
+                if (typeof initializeTableauViz === 'function') {
+                  initializeTableauViz(vizId);
+                } else if (typeof resizeTableauViz === 'function') {
+                  resizeTableauViz(vizId);
+                }
+              }, 100);
+              
+              // Resize again after tab animation completes
+              setTimeout(function() {
+                if (typeof resizeTableauViz === 'function') {
+                  resizeTableauViz(vizId);
+                }
+              }, 400);
+              
+              // Resize again to catch Tableau API loading
+              setTimeout(function() {
+                if (typeof resizeTableauViz === 'function') {
+                  resizeTableauViz(vizId);
+                }
+              }, 800);
+              
+              // Final resize after Tableau fully loads
+              setTimeout(function() {
+                if (typeof resizeTableauViz === 'function') {
+                  resizeTableauViz(vizId);
+                }
+              }, 1500);
+            }
+          });
+        });
+
+        // Resize on window resize (debounced)
+        var resizeTimeout;
+        window.addEventListener('resize', function() {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(function() {
+            // Resize all visualizations
+            Object.values(tabVizMap).forEach(function(vizId) {
+              if (typeof resizeTableauViz === 'function') {
+                resizeTableauViz(vizId);
+              }
+            });
+          }, 250);
+        });
+      });
     </script>
   </body>
 </html>

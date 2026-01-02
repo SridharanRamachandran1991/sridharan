@@ -20,6 +20,44 @@
   color: #000; /* Black text color */
 }
 
+/* Tab Navigation Styling */
+.nav-tabs {
+  border-bottom: 2px solid #dee2e6;
+  margin-bottom: 2rem;
+}
+
+.nav-tabs .nav-link {
+  color: #666;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.nav-tabs .nav-link:hover {
+  color: #2563eb;
+  border-bottom-color: rgba(37, 99, 235, 0.3);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.nav-tabs .nav-link.active {
+  color: #2563eb;
+  border-bottom-color: #2563eb;
+  background: transparent;
+  font-weight: 600;
+}
+
+.tab-content {
+  padding-top: 1rem;
+  width: 100%;
+}
+
+.tab-pane {
+  width: 100%;
+}
+
 .description-section {
   background: #f8f9fa;
   padding: 2.5rem;
@@ -62,6 +100,18 @@
 .tableauViz {
   width: 100% !important;
   max-width: 100%;
+}
+
+/* Ensure iframes (Tableau converts object to iframe) are properly sized */
+.tableau-embed-container iframe.tableauViz {
+  width: 100% !important;
+  min-height: 400px !important;
+  border: none !important;
+}
+
+.tableauPlaceholder iframe {
+  width: 100% !important;
+  min-height: 400px !important;
 }
 
 .dataset-link {
@@ -314,5 +364,16 @@
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
+}
+
+/* Collapsible section chevron icon styling */
+.section-title i {
+  transition: transform 0.3s ease;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+.section-title:hover {
+  opacity: 0.8;
 }
 
