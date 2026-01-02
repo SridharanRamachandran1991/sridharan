@@ -53,8 +53,8 @@ section {
 
 /* NAVBAR STYLING */
 .navbar-nav .nav-link {
-  font-size: 1.1rem; /* Increased font size for navigation links */
-  font-weight: 500;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
 }
 
 .navbar-brand {
