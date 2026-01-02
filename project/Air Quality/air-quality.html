@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Air Quality & Pollution Analysis - Sridharan Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="../../css/global.css" />
+    <!-- Page-specific CSS -->
+    <link rel="stylesheet" href="../../css/ecommerce-churn.css" />
+  </head>
+
+  <body>
+    <!-- Sticky Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="../../index.html" style="font-size: 1.5rem !important;">Sridharan Ramachandran Portfolio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item"><a class="nav-link" href="../../index.html#projects"><i class="bi bi-arrow-left"></i> Back to Projects</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Project Header -->
+    <div class="project-header">
+      <div class="container">
+        <h1 class="display-3 fw-bold mb-3">Air Quality & Pollution Analysis in India</h1>
+        <p class="lead">
+          Comprehensive analysis of historical air quality data (1987–2018) identifying pollution trends, regional hotspots, 
+          and temporal patterns across Indian cities and states.
+        </p>
+      </div>
+    </div>
+
+    <!-- Project Content -->
+    <div class="container project-content">
+      <!-- Executive Summary -->
+      <section class="executive-summary">
+        <h3>Executive Summary</h3>
+        <p class="summary-subtitle">Historical analysis • 400,000+ records • Multi-pollutant assessment</p>
+
+        <div class="summary-item">
+          <strong>Dataset scale:</strong> Over 400,000 rows of air quality measurements covering pollutants (SO₂, NO₂, RSPM) across multiple cities and states from 1987–2018
+        </div>
+
+        <div class="summary-item">
+          <strong>Analytical complexity:</strong> Handled large-scale time-series data with missing values, inconsistent location names, and required advanced data cleaning and feature engineering
+        </div>
+
+        <div class="summary-item">
+          <strong>Key insights:</strong> Identified regional pollution hotspots, temporal trends, and correlations between pollutants and geographic factors
+        </div>
+
+        <div class="summary-item">
+          <strong>Technical approach:</strong> Python (pandas) for data cleaning and transformation, SQL for aggregation and querying, Tableau for interactive visualizations
+        </div>
+
+        <div class="recommendation">
+          <strong>Impact:</strong> Provides actionable insights for environmental policy and public health initiatives by identifying high-risk areas and pollution trends over time.
+        </div>
+      </section>
+
+      <!-- Description Section -->
+      <section class="description-section">
+        <h2 class="section-title">Project Overview</h2>
+
+        <p class="mb-4">
+          This project involves analyzing historical air quality data in India to identify pollution trends, regional hotspots, 
+          and correlations with factors like location and time. The complexity stems from handling over 400,000 rows of data, 
+          managing missing values, and performing time-series analysis across multiple pollutants and geographic regions.
+        </p>
+
+        <h3 class="h5 fw-bold mt-4 mb-3">What I Built</h3>
+        <ul class="mb-4">
+          <li><strong>Data cleaning pipeline</strong> using Python (pandas) to handle missing values, standardize location names, and remove outliers</li>
+          <li><strong>Feature engineering</strong> to calculate average pollution levels per zone, year-over-year changes, and temporal patterns</li>
+          <li><strong>SQL queries</strong> for data aggregation (GROUP BY state and date) and joining with external location data</li>
+          <li><strong>Interactive Tableau dashboards</strong> with area charts, scatter plots, and geographic maps highlighting pollution hotspots</li>
+          <li><strong>Time-series analysis</strong> to identify long-term trends and seasonal patterns in air quality</li>
+        </ul>
+
+        <h3 class="h5 fw-bold mt-4 mb-3">Key Questions</h3>
+        <ul class="mb-4">
+          <li>Which regions and cities show the highest pollution levels over time?</li>
+          <li>What are the temporal trends in pollutant concentrations (SO₂, NO₂, RSPM)?</li>
+          <li>How do pollution levels correlate with geographic factors and time periods?</li>
+          <li>Which monitoring stations show concerning pollution patterns?</li>
+        </ul>
+
+        <h3 class="h5 fw-bold mt-4 mb-3">Method (High Level)</h3>
+        <ul class="mb-4">
+          <li><strong>Data Cleaning:</strong> Handled missing pollutant readings using imputation (means) and forward-fill for time-series continuity</li>
+          <li><strong>Data Standardization:</strong> Standardized inconsistent city/state names and removed outliers in measurement values</li>
+          <li><strong>Feature Engineering:</strong> Calculated average pollution levels per zone, year-over-year changes, and temporal aggregations</li>
+          <li><strong>SQL Analysis:</strong> Used GROUP BY operations for state and date aggregations, JOINs for location enrichment</li>
+          <li><strong>Visualization:</strong> Created interactive dashboards with area charts, scatter plots, and geographic maps in Tableau</li>
+        </ul>
+        <div class="d-flex gap-3 mb-3 flex-wrap">
+          <a href="https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india" target="_blank" class="dataset-link">
+            <i class="bi bi-box-arrow-up-right"></i>
+            View Dataset on Kaggle
+          </a>
+        </div>
+      </section>
+
+      <!-- Methodology Sections -->
+      <section class="tableau-container">
+        <h2 class="section-title mb-4">Methodology & Analysis</h2>
+        
+        <!-- Tab Navigation -->
+        <ul class="nav nav-tabs mb-4" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="tab-cleaning" data-bs-toggle="tab" data-bs-target="#pane-cleaning" type="button" role="tab" aria-controls="pane-cleaning" aria-selected="true">
+              Data Cleaning
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-transformation" data-bs-toggle="tab" data-bs-target="#pane-transformation" type="button" role="tab" aria-controls="pane-transformation" aria-selected="false">
+              Data Transformation
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="tab-visualization" data-bs-toggle="tab" data-bs-target="#pane-visualization" type="button" role="tab" aria-controls="pane-visualization" aria-selected="false">
+              Visualization
+            </button>
+          </li>
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+          <!-- Tab Pane 1: Data Cleaning -->
+          <div class="tab-pane fade show active" id="pane-cleaning" role="tabpanel" aria-labelledby="tab-cleaning">
+
+            <div class="analysis-section">
+              <h4>Challenge:</h4>
+              <p>Handling over 400,000 rows of air quality data with significant missing values, inconsistent location names, and outliers in measurement values.</p>
+            </div>
+
+            <div class="analysis-section">
+              <h4>Approach:</h4>
+              <ul>
+                <li><strong>Missing value imputation:</strong> Used mean imputation for pollutant readings where appropriate, and forward-fill for time-series continuity to maintain temporal patterns</li>
+                <li><strong>Location standardization:</strong> Standardized inconsistent city and state names using string matching and manual mapping to ensure accurate geographic analysis</li>
+                <li><strong>Outlier removal:</strong> Identified and removed outliers in measurement values using statistical methods (IQR, z-scores) to ensure data quality</li>
+                <li><strong>Data validation:</strong> Implemented validation checks to ensure pollutant readings are within expected ranges and dates are properly formatted</li>
+              </ul>
+            </div>
+
+            <div class="analysis-section">
+              <h4>Tools & Techniques:</h4>
+              <ul>
+                <li>Python (pandas) for data manipulation and cleaning</li>
+                <li>Statistical methods for outlier detection and imputation</li>
+                <li>String processing for location name standardization</li>
+                <li>Time-series handling for temporal data continuity</li>
+              </ul>
+            </div>
+
+            <div class="business-recommendations">
+              <h4>Key Outcomes</h4>
+              <ul>
+                <li>Cleaned dataset ready for analysis with <strong>minimal data loss</strong> while maintaining temporal integrity</li>
+                <li>Standardized location names enabling <strong>accurate geographic aggregation</strong> and mapping</li>
+                <li>High-quality data foundation supporting <strong>reliable trend analysis</strong> and visualization</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Tab Pane 2: Data Transformation -->
+          <div class="tab-pane fade" id="pane-transformation" role="tabpanel" aria-labelledby="tab-transformation">
+
+            <div class="analysis-section">
+              <h4>Challenge:</h4>
+              <p>Transforming raw air quality measurements into meaningful analytical features and aggregations for trend analysis and visualization.</p>
+            </div>
+
+            <div class="analysis-section">
+              <h4>Feature Engineering (Python):</h4>
+              <ul>
+                <li><strong>Zonal averages:</strong> Calculated average pollution levels per geographic zone (city, state) to identify regional patterns</li>
+                <li><strong>Year-over-year changes:</strong> Computed percentage changes in pollutant concentrations to identify trends and improvements</li>
+                <li><strong>Temporal aggregations:</strong> Created monthly, quarterly, and annual averages for time-series analysis</li>
+                <li><strong>Pollutant ratios:</strong> Calculated ratios between different pollutants (e.g., NO₂/SO₂) to identify emission source patterns</li>
+              </ul>
+            </div>
+
+            <div class="analysis-section">
+              <h4>SQL Queries:</h4>
+              <ul>
+                <li><strong>State-level aggregation:</strong> Used <code>GROUP BY state, date</code> to calculate zonal averages and identify high-pollution states</li>
+                <li><strong>Time-series aggregation:</strong> Aggregated data by year and month to enable trend analysis</li>
+                <li><strong>Location enrichment:</strong> Used <code>JOIN</code> operations with external location data for deeper geographic insights</li>
+                <li><strong>Station-level analysis:</strong> Queried individual monitoring stations to identify outliers and data quality issues</li>
+              </ul>
+            </div>
+
+            <div class="business-recommendations">
+              <h4>Key Outcomes</h4>
+              <ul>
+                <li>Created <strong>actionable analytical features</strong> enabling trend identification and pattern recognition</li>
+                <li>Efficient data aggregation supporting <strong>fast dashboard queries</strong> and interactive exploration</li>
+                <li>Structured data ready for <strong>advanced visualization</strong> and stakeholder communication</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Tab Pane 3: Visualization -->
+          <div class="tab-pane fade" id="pane-visualization" role="tabpanel" aria-labelledby="tab-visualization">
+
+            <div class="analysis-section">
+              <h4>Challenge:</h4>
+              <p>Creating interactive, stakeholder-friendly visualizations that communicate complex air quality trends and regional patterns effectively.</p>
+            </div>
+
+            <div class="analysis-section">
+              <h4>Dashboard Components:</h4>
+              <ul>
+                <li><strong>Area charts:</strong> Visualized pollutant trends over time (1987–2018) showing long-term patterns and seasonal variations</li>
+                <li><strong>Scatter plots:</strong> Compared station-level pollution measurements to identify outliers and high-risk monitoring locations</li>
+                <li><strong>Geographic maps:</strong> Used Tableau's built-in geocoding to highlight high-pollution areas on interactive maps</li>
+                <li><strong>Interactive filters:</strong> Enabled filtering by specific pollutants (SO₂, NO₂, RSPM), time periods, and geographic regions</li>
+              </ul>
+            </div>
+
+            <div class="analysis-section">
+              <h4>Visualization Features:</h4>
+              <ul>
+                <li>Time-series analysis showing <strong>multi-decade pollution trends</strong></li>
+                <li>Geographic heat maps identifying <strong>regional pollution hotspots</strong></li>
+                <li>Comparative analysis across <strong>different pollutants and locations</strong></li>
+                <li>Interactive exploration enabling <strong>drill-down into specific regions or time periods</strong></li>
+              </ul>
+            </div>
+
+            <div class="business-recommendations">
+              <h4>Key Outcomes</h4>
+              <ul>
+                <li>Interactive dashboards enabling <strong>stakeholder exploration</strong> and data-driven decision making</li>
+                <li>Clear visualization of <strong>pollution trends and hotspots</strong> supporting environmental policy</li>
+                <li>Accessible presentation of <strong>complex analytical findings</strong> for non-technical audiences</li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Key Findings -->
+      <section class="description-section">
+        <h2 class="section-title">Key Findings & Insights</h2>
+
+        <div class="analysis-section">
+          <h4>Regional Patterns:</h4>
+          <p>
+            Analysis revealed distinct regional pollution hotspots, with certain states and cities consistently showing higher 
+            pollutant concentrations. Geographic mapping identified areas requiring targeted environmental interventions.
+          </p>
+        </div>
+
+        <div class="analysis-section">
+          <h4>Temporal Trends:</h4>
+          <p>
+            Time-series analysis uncovered long-term trends in air quality, including periods of improvement and deterioration. 
+            Year-over-year comparisons highlighted the effectiveness of environmental policies and identified periods requiring attention.
+          </p>
+        </div>
+
+        <div class="analysis-section">
+          <h4>Pollutant Correlations:</h4>
+          <p>
+            Analysis of multiple pollutants (SO₂, NO₂, RSPM) revealed correlations between different emission sources and geographic 
+            factors, providing insights into pollution sources and their regional distribution.
+          </p>
+        </div>
+
+        <div class="business-recommendations">
+          <h4>Business Recommendations</h4>
+          <ul>
+            <li>Prioritize environmental interventions in identified high-pollution regions based on geographic analysis</li>
+            <li>Monitor long-term trends to evaluate the effectiveness of air quality improvement initiatives</li>
+            <li>Use station-level comparisons to identify data quality issues and optimize monitoring network coverage</li>
+            <li>Leverage temporal patterns to predict seasonal pollution spikes and plan preventive measures</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Limitations & Next Steps -->
+      <section class="description-section">
+        <h2 class="section-title">Limitations & Next Steps</h2>
+
+        <ul class="mb-3">
+          <li><strong>Data completeness:</strong> Missing values required imputation, which may introduce uncertainty in trend analysis for specific time periods or locations.</li>
+          <li><strong>Temporal coverage:</strong> While the dataset spans 1987–2018, data availability varies by location and time period, affecting comparability.</li>
+          <li><strong>Station representation:</strong> Monitoring station density varies by region, potentially underrepresenting pollution levels in areas with fewer stations.</li>
+        </ul>
+
+        <h3 class="h5 fw-bold mt-4 mb-3">Next Steps</h3>
+        <ul class="mb-0">
+          <li>Integrate external data sources (weather, industrial activity) to enhance correlation analysis and identify pollution drivers</li>
+          <li>Develop predictive models to forecast pollution levels based on historical trends and external factors</li>
+          <li>Create automated reporting dashboards for real-time monitoring and alerting on pollution threshold breaches</li>
+          <li>Expand analysis to include additional pollutants and health impact assessments</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Close navbar when clicking outside
+      (function() {
+        const navbar = document.querySelector('.navbar-collapse');
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        
+        document.addEventListener('click', function(event) {
+          const isClickInsideNav = navbar.contains(event.target);
+          const isClickOnToggler = navbarToggler && navbarToggler.contains(event.target);
+          const isNavbarOpen = navbar.classList.contains('show');
+          
+          if (isNavbarOpen && !isClickInsideNav && !isClickOnToggler) {
+            const bsCollapse = new bootstrap.Collapse(navbar, {
+              toggle: false
+            });
+            bsCollapse.hide();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
+
