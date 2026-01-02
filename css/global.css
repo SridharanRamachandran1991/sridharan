@@ -58,7 +58,7 @@ section {
 }
 
 .navbar-brand {
-  font-size: 1.2rem; /* Increased font size for brand/logo */
+  font-size: 1.5rem !important; /* Updated to match user requirement */
 }
 
 /* Move hamburger menu to left on mobile */
