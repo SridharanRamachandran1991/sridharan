@@ -18,7 +18,7 @@
     <!-- Sticky Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="../../index.html" style="font-size: 1.5rem !important;">Sridharan Ramachandran Portfolio</a>
+        <a class="navbar-brand fw-bold" href="../../index.html" style="font-size: 1.5rem !important;">Sridharan's Portfolio</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -126,33 +126,21 @@
         </div>
       </section>
 
-      <!-- Tableau Dashboard Sections - Tabs Layout -->
+      <!-- Tableau Dashboard Sections - Collapsible Layout -->
       <section class="tableau-container">
         <h2 class="section-title mb-4">Dashboard Analysis</h2>
         
-        <!-- Tab Navigation -->
-        <ul class="nav nav-tabs mb-4" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="tab-geography" data-bs-toggle="tab" data-bs-target="#pane-geography" type="button" role="tab" aria-controls="pane-geography" aria-selected="true">
-              Geographic Segmentation
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-delivery" data-bs-toggle="tab" data-bs-target="#pane-delivery" type="button" role="tab" aria-controls="pane-delivery" aria-selected="false">
-              Operational Performance
-            </button>
-          </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" id="tab-reviews" data-bs-toggle="tab" data-bs-target="#pane-reviews" type="button" role="tab" aria-controls="pane-reviews" aria-selected="false">
-              Customer Experience
-            </button>
-          </li>
-        </ul>
-
-        <!-- Tab Content -->
-        <div class="tab-content">
-          <!-- Tab Pane 1: Geography -->
-          <div class="tab-pane fade show active" id="pane-geography" role="tabpanel" aria-labelledby="tab-geography">
+        <!-- Accordion for Collapsible Sections -->
+        <div class="accordion" id="dashboardAccordion">
+          <!-- Collapse Section 1: Geography -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-geography">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pane-geography" aria-expanded="true" aria-controls="pane-geography">
+                Geographic Segmentation
+              </button>
+            </h2>
+            <div id="pane-geography" class="accordion-collapse collapse show" aria-labelledby="heading-geography" data-bs-parent="#dashboardAccordion">
+              <div class="accordion-body">
 
         <div class="analysis-section">
           <h3 class="mt-4 mb-3" style="font-size: 1.25rem !important; font-weight: 700 !important;">Business Question</h3>
@@ -218,10 +206,19 @@
           <i class="bi bi-info-circle"></i>
           Tip: Use the dashboard filters to isolate high-churn states, then compare delivery lateness and review score patterns.
         </p>
+              </div>
+            </div>
           </div>
 
-          <!-- Tab Pane 2: Delivery -->
-          <div class="tab-pane fade" id="pane-delivery" role="tabpanel" aria-labelledby="tab-delivery">
+          <!-- Collapse Section 2: Delivery -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-delivery">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pane-delivery" aria-expanded="false" aria-controls="pane-delivery">
+                Operational Performance
+              </button>
+            </h2>
+            <div id="pane-delivery" class="accordion-collapse collapse" aria-labelledby="heading-delivery" data-bs-parent="#dashboardAccordion">
+              <div class="accordion-body">
 
         <div class="analysis-section">
           <h3 class="mt-4 mb-3" style="font-size: 1.25rem !important; font-weight: 700 !important;">Business Question</h3>
@@ -277,7 +274,7 @@
             </object>
           </div>
           <script type='text/javascript'>
-            // Visualization will be initialized when tab is shown
+            // Visualization will be initialized when section is expanded
           </script>
         </div>
 
@@ -285,10 +282,19 @@
           <i class="bi bi-info-circle"></i>
           Tip: Toggle filters (late bucket / order count) to see how churn changes for repeat customers vs one-time buyers.
         </p>
+              </div>
+            </div>
           </div>
 
-          <!-- Tab Pane 3: Reviews -->
-          <div class="tab-pane fade" id="pane-reviews" role="tabpanel" aria-labelledby="tab-reviews">
+          <!-- Collapse Section 3: Reviews -->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-reviews">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pane-reviews" aria-expanded="false" aria-controls="pane-reviews">
+                Customer Experience
+              </button>
+            </h2>
+            <div id="pane-reviews" class="accordion-collapse collapse" aria-labelledby="heading-reviews" data-bs-parent="#dashboardAccordion">
+              <div class="accordion-body">
 
         <div class="analysis-section">
           <h3 class="mt-4 mb-3" style="font-size: 1.25rem !important; font-weight: 700 !important;">Business Question</h3>
@@ -344,7 +350,7 @@
             </object>
           </div>
           <script type='text/javascript'>
-            // Visualization will be initialized when tab is shown
+            // Visualization will be initialized when section is expanded
           </script>
         </div>
 
@@ -352,6 +358,8 @@
           <i class="bi bi-info-circle"></i>
           Tip: Segment by review bucket and order frequency to identify the highest-risk customers for outreach.
         </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>

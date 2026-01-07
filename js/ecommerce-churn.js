@@ -101,11 +101,11 @@
   }
 
   /**
-   * Initialize Tableau visualizations for tab-based layouts
-   * @param {Object} tabVizMap - Map of tab pane IDs to visualization IDs
+   * Initialize Tableau visualizations for collapsible sections
+   * @param {Object} collapseVizMap - Map of collapse pane IDs to visualization IDs
    * @param {string} defaultVizId - Default visualization to initialize on page load
    */
-  function initTabTableauViz(tabVizMap, defaultVizId) {
+  function initCollapseTableauViz(collapseVizMap, defaultVizId) {
     // Initialize default visualization on page load
     if (defaultVizId) {
       setTimeout(() => {
@@ -113,13 +113,12 @@
       }, 500);
     }
 
-    // Handle tab switches
-    const tabButtons = document.querySelectorAll('[data-bs-toggle="tab"]');
-    tabButtons.forEach((button) => {
-      button.addEventListener('shown.bs.tab', (event) => {
-        const targetPaneId = event.target.getAttribute('data-bs-target');
-        const paneId = targetPaneId ? targetPaneId.replace('#', '') : '';
-        const vizId = tabVizMap[paneId];
+    // Handle collapse events
+    const collapseElements = document.querySelectorAll('.accordion-collapse');
+    collapseElements.forEach((collapseElement) => {
+      collapseElement.addEventListener('shown.bs.collapse', (event) => {
+        const paneId = event.target.id;
+        const vizId = collapseVizMap[paneId];
         
         if (!vizId) return;
 
@@ -134,7 +133,7 @@
           }
         }
         
-        // Initialize Tableau when tab becomes visible
+        // Initialize Tableau when section becomes visible
         setTimeout(() => {
           initializeTableauViz(vizId);
         }, 100);
@@ -154,7 +153,7 @@
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        Object.values(tabVizMap).forEach((vizId) => {
+        Object.values(collapseVizMap).forEach((vizId) => {
           resizeTableauViz(vizId);
         });
       }, 250);
@@ -164,16 +163,16 @@
   // Export functions to global scope
   window.resizeTableauViz = resizeTableauViz;
   window.initializeTableauViz = initializeTableauViz;
-  window.initTabTableauViz = initTabTableauViz;
+  window.initCollapseTableauViz = initCollapseTableauViz;
 
   // Initialize on page load
   document.addEventListener('DOMContentLoaded', function() {
-    const tabVizMap = {
+    const collapseVizMap = {
       'pane-geography': 'viz1767031657381',
       'pane-delivery': 'viz1767205629728',
       'pane-reviews': 'viz1767206310675'
     };
-    initTabTableauViz(tabVizMap, 'viz1767031657381');
+    initCollapseTableauViz(collapseVizMap, 'viz1767031657381');
   });
 })();
 

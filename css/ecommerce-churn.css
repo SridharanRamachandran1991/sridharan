@@ -20,43 +20,60 @@
   color: #000; /* Black text color */
 }
 
-/* Tab Navigation Styling */
-.nav-tabs {
-  border-bottom: 2px solid #dee2e6;
+/* Accordion/Collapsible Section Styling */
+.accordion {
   margin-bottom: 2rem;
 }
 
-.nav-tabs .nav-link {
-  color: #666;
+.accordion-item {
+  border: 1px solid #dee2e6;
+  border-radius: 8px !important;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.accordion-item:first-of-type {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.accordion-item:last-of-type {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.accordion-button {
   font-size: 1.25rem !important;
   font-weight: 700 !important;
-  padding: 0.75rem 1.5rem;
+  color: #333 !important;
+  background-color: #f8f9fa;
+  padding: 1rem 1.5rem;
   border: none;
-  border-bottom: 3px solid transparent;
-  transition: all 0.3s ease;
-  background: transparent;
+  box-shadow: none;
 }
 
-.nav-tabs .nav-link:hover {
-  color: #2563eb;
-  border-bottom-color: rgba(37, 99, 235, 0.3);
-  background: rgba(37, 99, 235, 0.05);
+.accordion-button:not(.collapsed) {
+  color: #2563eb !important;
+  background-color: #e7f3ff;
+  box-shadow: none;
 }
 
-.nav-tabs .nav-link.active {
-  color: #2563eb;
-  border-bottom-color: #2563eb;
-  background: transparent;
-  font-weight: 700 !important;
+.accordion-button:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.25);
 }
 
-.tab-content {
-  padding-top: 1rem;
-  width: 100%;
+.accordion-button:hover {
+  background-color: #e9ecef;
 }
 
-.tab-pane {
-  width: 100%;
+.accordion-button:not(.collapsed):hover {
+  background-color: #d0e7ff;
+}
+
+.accordion-body {
+  padding: 1.5rem;
+  background-color: #fff;
 }
 
 .description-section {
