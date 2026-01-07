@@ -30,26 +30,7 @@ section {
   scroll-margin-top: 90px;
 }
 
-/* Common gradient utilities */
-.gradient-bg {
-  background: var(--gradient-primary);
-}
-
-.gradient-text {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Common transition utilities */
-.transition-base {
-  transition: all var(--transition-base);
-}
-
-.transition-fast {
-  transition: all var(--transition-fast);
-}
+/* Note: Gradient and transition utilities removed - CSS variables are used directly in component styles */
 
 /* NAVBAR STYLING */
 .navbar-nav .nav-link {
