@@ -20,60 +20,29 @@
   color: #000; /* Black text color */
 }
 
-/* Accordion/Collapsible Section Styling */
-.accordion {
-  margin-bottom: 2rem;
+/* Dashboard Section Styling */
+.dashboard-section {
+  padding: 2rem 0;
+  border-bottom: 1px solid #e9ecef;
 }
 
-.accordion-item {
-  border: 1px solid #dee2e6;
-  border-radius: 8px !important;
-  margin-bottom: 1rem;
-  overflow: hidden;
+.dashboard-section:last-child {
+  border-bottom: none;
 }
 
-.accordion-item:first-of-type {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.accordion-item:last-of-type {
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.accordion-button {
-  font-size: 1.25rem !important;
+/* Dashboard Section Title - Highlighted and Differentiated */
+.dashboard-section-title {
+  font-size: 1.75rem !important;
   font-weight: 700 !important;
-  color: #333 !important;
-  background-color: #f8f9fa;
-  padding: 1rem 1.5rem;
-  border: none;
-  box-shadow: none;
-}
-
-.accordion-button:not(.collapsed) {
   color: #2563eb !important;
-  background-color: #e7f3ff;
-  box-shadow: none;
-}
-
-.accordion-button:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 0.25rem rgba(37, 99, 235, 0.25);
-}
-
-.accordion-button:hover {
-  background-color: #e9ecef;
-}
-
-.accordion-button:not(.collapsed):hover {
-  background-color: #d0e7ff;
-}
-
-.accordion-body {
-  padding: 1.5rem;
-  background-color: #fff;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #e7f3ff 0%, #d0e7ff 100%);
+  border-left: 5px solid #2563eb;
+  border-radius: 8px;
+  margin-bottom: 2rem !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.15);
+  display: inline-block;
+  width: 100%;
 }
 
 .description-section {
@@ -321,6 +290,11 @@
     font-size: 1.5rem;
   }
 
+  .dashboard-section-title {
+    font-size: 1.5rem !important;
+    padding: 0.75rem 1rem;
+  }
+
   .executive-summary {
     padding: 1.5rem;
   }
@@ -363,6 +337,11 @@
   .dataset-link {
     padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
+  }
+
+  .dashboard-section-title {
+    font-size: 1.25rem !important;
+    padding: 0.75rem 1rem;
   }
 }
 

@@ -101,51 +101,15 @@
   }
 
   /**
-   * Initialize Tableau visualizations for collapsible sections
-   * @param {Object} collapseVizMap - Map of collapse pane IDs to visualization IDs
-   * @param {string} defaultVizId - Default visualization to initialize on page load
+   * Initialize all Tableau visualizations on page load
+   * @param {Array} vizIds - Array of visualization IDs to initialize
    */
-  function initCollapseTableauViz(collapseVizMap, defaultVizId) {
-    // Initialize default visualization on page load
-    if (defaultVizId) {
+  function initAllTableauViz(vizIds) {
+    // Initialize all visualizations on page load with staggered delays
+    vizIds.forEach((vizId, index) => {
       setTimeout(() => {
-        initializeTableauViz(defaultVizId);
-      }, 500);
-    }
-
-    // Handle collapse events
-    const collapseElements = document.querySelectorAll('.accordion-collapse');
-    collapseElements.forEach((collapseElement) => {
-      collapseElement.addEventListener('shown.bs.collapse', (event) => {
-        const paneId = event.target.id;
-        const vizId = collapseVizMap[paneId];
-        
-        if (!vizId) return;
-
-        // Make visualization visible
-        const divElement = document.getElementById(vizId);
-        if (divElement) {
-          const vizElement = divElement.querySelector('iframe.tableauViz') || 
-                            divElement.getElementsByTagName('iframe')[0] ||
-                            divElement.getElementsByTagName('object')[0];
-          if (vizElement) {
-            vizElement.style.display = 'block';
-          }
-        }
-        
-        // Initialize Tableau when section becomes visible
-        setTimeout(() => {
-          initializeTableauViz(vizId);
-        }, 100);
-        
-        // Resize at multiple intervals to catch Tableau API loading
-        const resizeIntervals = [400, 800, 1500];
-        resizeIntervals.forEach((delay) => {
-          setTimeout(() => {
-            resizeTableauViz(vizId);
-          }, delay);
-        });
-      });
+        initializeTableauViz(vizId);
+      }, 500 + (index * 300)); // Stagger initialization to avoid overwhelming the browser
     });
 
     // Handle window resize (debounced)
@@ -153,26 +117,27 @@
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(() => {
-        Object.values(collapseVizMap).forEach((vizId) => {
+        vizIds.forEach((vizId) => {
           resizeTableauViz(vizId);
         });
       }, 250);
     });
   }
 
-  // Export functions to global scope
+  // Export functions to global scope (for potential debugging or external use)
+  // Note: These are currently only used internally but kept for extensibility
   window.resizeTableauViz = resizeTableauViz;
   window.initializeTableauViz = initializeTableauViz;
-  window.initCollapseTableauViz = initCollapseTableauViz;
+  window.initAllTableauViz = initAllTableauViz;
 
   // Initialize on page load
   document.addEventListener('DOMContentLoaded', function() {
-    const collapseVizMap = {
-      'pane-geography': 'viz1767031657381',
-      'pane-delivery': 'viz1767205629728',
-      'pane-reviews': 'viz1767206310675'
-    };
-    initCollapseTableauViz(collapseVizMap, 'viz1767031657381');
+    const vizIds = [
+      'viz1767031657381', // Geography
+      'viz1767205629728', // Delivery
+      'viz1767206310675'  // Reviews
+    ];
+    initAllTableauViz(vizIds);
   });
 })();
 
